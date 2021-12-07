@@ -12,7 +12,7 @@ double value;
 string name;
 Token(char ch) :kind(ch), value(0) { }
 Token(char ch, double val) :kind(ch), value(val) { }
-Token(char ch, string val) :kind(ch), name(val) { } //Error 1: Line missing
+Token(char ch, string val) :kind(ch), name(val) { } 
 };
 
 class Token_stream {
@@ -79,21 +79,21 @@ return Token(number, val);
 }
 default:
 {
-if (isalpha(ch) || ch == '_') { //is ch a letter?
+if (isalpha(ch) || ch == '_') { 
 string s;
 s += ch;
-while (cin.get(ch) && (isalpha(ch) || isdigit(ch) || ch == '_')) { //reads chars, strings or digits
-s += ch; //Error 2: s = ch;
+while (cin.get(ch) && (isalpha(ch) || isdigit(ch) || ch == '_')) { 
+s += ch; 
 }
-cin.unget(); //puts the most recently read character back into the stream
-if (s == "exit") return Token(exitprog); //Error 2: if (s == "quit") return Token(name);
+cin.unget(); 
+if (s == "exit") return Token(exitprog); 
 if (s == "sqrt") return Token(sqroot);
 if (s == "pow") return Token(power);
 if (s == "reset") return Token(reset);
 return Token(name, s);
 }
 error("Bad token");
-return Token(' '); //Line missing
+return Token(' '); 
 }
 }
 }
@@ -127,7 +127,7 @@ return names[i].value;
 }
 }
 error("get: undefined name ", s);
-return 0.0; //Line missing
+return 0.0; 
 }
 
 void set_value(string s, double d)
@@ -161,8 +161,8 @@ case '(':
 {
 double d = expression();
 t = ts.get();
-if (t.kind != ')') error("')' expected"); //Error 3: if (t.kind != ')') error("'(' expected");
-return d; //Line missing
+if (t.kind != ')') error("')' expected"); 
+return d; 
 }
 case '-':
 {
@@ -221,7 +221,7 @@ return get_value(t.name);
 default:
 {
 error("primary expected");
-return 0.0; //Line missing
+return 0.0; 
 }
 }
 }
@@ -285,7 +285,7 @@ return left;
 double declaration(char kind)
 {
 Token t = ts.get();
-if (t.kind != name) { //if (t.kind != 'a')
+if (t.kind != name) { 
 error("name expected in declaration");
 }
 

@@ -79,14 +79,14 @@ return Token(number, val);
 }
 default:
 {
-if (isalpha(ch) || ch == '_') { //is ch a letter?
+if (isalpha(ch) || ch == '_') { 
 string s;
 s += ch;
-while (cin.get(ch) && (isalpha(ch) || isdigit(ch) || ch == '_')) { //reads chars, strings or digits
-s += ch; //Error 2: s = ch;
+while (cin.get(ch) && (isalpha(ch) || isdigit(ch) || ch == '_')) { 
+s += ch; 
 }
-cin.unget(); //puts the most recently read character back into the stream
-if (s == "exit") return Token(exitprog); //Error 2: if (s == "quit") return Token(name);
+cin.unget(); 
+if (s == "exit") return Token(exitprog); 
 if (s == "sqrt") return Token(sqroot);
 if (s == "pow") return Token(power);
 return Token(name, s);
@@ -283,7 +283,7 @@ return left;
 double declaration()
 {
 Token t = ts.get();
-if (t.kind != name) { //if (t.kind != 'a')
+if (t.kind != name) { 
 error("name expected in declaration");
 }
 
